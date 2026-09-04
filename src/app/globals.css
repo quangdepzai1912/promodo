@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -27,6 +28,17 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.pixel-font {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  letter-spacing: 0;
+}
+
+.pixel-heading {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  letter-spacing: 0;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
 }
 
 /* Panel được làm trong suốt nhẹ để lộ ảnh nền nhưng vẫn giữ được sự tinh tế, góc cạnh */

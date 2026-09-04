@@ -169,7 +169,7 @@ export default function Timer() {
         </div>
 
         {/* Timer display */}
-        <div className="mb-3 text-[4.5rem] font-bold leading-none tracking-tighter text-white tabular-nums sm:text-[7rem] md:text-[10rem]">
+        <div className="pixel-font mb-3 text-[4.5rem] font-bold leading-none text-white tabular-nums sm:text-[7rem] md:text-[10rem]">
           {formatTime(timeLeft)}
         </div>
 
@@ -192,7 +192,7 @@ export default function Timer() {
             }`}
           >
             {isActive ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
-            {isActive ? "PAUSE" : "START"}
+            <span className="pixel-font text-[10px] sm:text-xs">{isActive ? "PAUSE" : "START"}</span>
           </button>
 
           <button

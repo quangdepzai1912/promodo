@@ -53,7 +53,7 @@ export default function Home() {
           <div className="surface-panel flex h-full min-h-[360px] flex-col p-4 sm:min-h-[420px] sm:p-6">
             {/* Header */}
             <div className="pb-5 mb-1 border-b border-[#262626]">
-              <h1 className="text-lg font-bold tracking-tight sm:text-xl">Focus Tasks</h1>
+              <h1 className="pixel-heading text-lg font-bold tracking-tight sm:text-xl">Focus Tasks</h1>
               <p className="text-xs text-neutral-500 mt-1">Track what you&apos;re working on today</p>
             </div>
 
