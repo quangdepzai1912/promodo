@@ -4,6 +4,7 @@ import { Play, Pause, RotateCcw, Settings } from "lucide-react";
 import SettingsModal, { PomodoroSettings } from "./SettingsModal";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "./AuthProvider";
+import { playAlarmSound } from "@/lib/alarmSounds";
 
 type Mode = "pomodoro" | "shortBreak" | "longBreak";
 
@@ -65,10 +66,7 @@ export default function Timer() {
       interval = setInterval(() => setTimeLeft((t) => t - 1), 1000);
     } else if (timeLeft === 0 && isActive) {
       // Play alarm
-      if (alarmRef.current) {
-        alarmRef.current.volume = settings.volume / 100;
-        alarmRef.current.play().catch(() => {});
-      }
+      playAlarmSound(settings.alarmSound, settings.volume, alarmRef.current);
       setIsActive(false);
 
       // Auto-switch mode

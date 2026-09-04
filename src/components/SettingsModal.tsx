@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { X, Volume2 } from "lucide-react";
+import { alarmSoundOptions, playAlarmSound } from "@/lib/alarmSounds";
 
 type SettingsProps = {
   isOpen: boolean;
@@ -34,12 +35,7 @@ export default function SettingsModal({ isOpen, onClose, onSave, currentSettings
     onClose();
   };
 
-  const previewSound = () => {
-    if (audioRef.current) {
-      audioRef.current.volume = settings.volume / 100;
-      audioRef.current.play().catch(() => {});
-    }
-  };
+  const previewSound = () => playAlarmSound(settings.alarmSound, settings.volume, audioRef.current);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -103,8 +99,18 @@ export default function SettingsModal({ isOpen, onClose, onSave, currentSettings
         {/* Sound section */}
         <div className="mb-8">
           <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3">Alarm Sound</p>
+          <div className="mb-4 flex items-center gap-3">
+            <Volume2 className="h-4 w-4 shrink-0 text-neutral-500" />
+            <select
+              value={settings.alarmSound}
+              onChange={(event) => setSettings({ ...settings, alarmSound: event.target.value })}
+              className="min-w-0 flex-1 rounded-md border border-[#333] bg-[#0a0a0a] px-3 py-2 text-sm text-white outline-none focus:border-white"
+              aria-label="Alarm sound"
+            >
+              {alarmSoundOptions.map((sound) => <option key={sound.value} value={sound.value}>{sound.label}</option>)}
+            </select>
+          </div>
           <div className="flex items-center gap-3">
-            <Volume2 className="w-4 h-4 text-neutral-500" />
             <input
               type="range"
               min={0}
