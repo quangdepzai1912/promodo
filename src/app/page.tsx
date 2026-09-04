@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { CalendarDays, Target } from "lucide-react";
 import Timer from "@/components/Timer";
 import TaskList from "@/components/TaskList";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -6,10 +10,34 @@ import BackgroundRotator from "@/components/BackgroundRotator";
 import GoalPlanner from "@/components/GoalPlanner";
 
 export default function Home() {
+  const [activePanel, setActivePanel] = useState<"calendar" | "roadmap" | null>(null);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24">
       <BackgroundRotator />
       <ThemeToggle />
+      <div className="fixed right-16 top-5 z-20 flex gap-2">
+        <button
+          type="button"
+          onClick={() => setActivePanel(activePanel === "calendar" ? null : "calendar")}
+          className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-md transition-colors ${activePanel === "calendar" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
+          title="Study calendar"
+          aria-label="Open study calendar"
+          aria-pressed={activePanel === "calendar"}
+        >
+          <CalendarDays className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => setActivePanel(activePanel === "roadmap" ? null : "roadmap")}
+          className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-md transition-colors ${activePanel === "roadmap" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
+          title="Study roadmap"
+          aria-label="Open study roadmap"
+          aria-pressed={activePanel === "roadmap"}
+        >
+          <Target className="h-4 w-4" />
+        </button>
+      </div>
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         
         {/* Left Column: Timer (Settings button is inside Timer) */}
@@ -33,8 +61,8 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-5xl">
-        <StudyCalendar />
-        <GoalPlanner />
+        {activePanel === "calendar" && <StudyCalendar />}
+        {activePanel === "roadmap" && <GoalPlanner />}
       </div>
 
       {/* Footer */}
