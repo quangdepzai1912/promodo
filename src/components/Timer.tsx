@@ -169,7 +169,7 @@ export default function Timer() {
         </div>
 
         {/* Timer display */}
-        <div className="pixel-font mb-3 max-w-full overflow-hidden whitespace-nowrap text-[3.2rem] font-bold leading-none text-white tabular-nums sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem]">
+        <div className="pixel-font mb-3 max-w-full overflow-hidden whitespace-nowrap text-[2.6rem] font-bold leading-none text-white tabular-nums sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem]">
           {formatTime(timeLeft)}
         </div>
 
