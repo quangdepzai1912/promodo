@@ -155,16 +155,6 @@ export default function Timer() {
           <Settings className="w-4 h-4" />
         </button>
 
-        {/* Pomodoro counter dots */}
-        <div className="flex gap-1.5 mb-8">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full transition-colors ${i < pomodoroCount % 4 ? 'bg-white' : 'bg-neutral-700'}`}
-            />
-          ))}
-        </div>
-
         {/* Mode tabs */}
         <div className="flex gap-1.5 mb-10 p-1 bg-[#0a0a0a] border border-[#262626] rounded-lg">
           {(["pomodoro", "shortBreak", "longBreak"] as Mode[]).map((m) => (
