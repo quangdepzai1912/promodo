@@ -6,6 +6,7 @@
   
   --panel-bg: #111111;
   --panel-border: #262626;
+  --background-image: url('/meomeo.jpg');
 }
 
 @theme inline {
@@ -22,7 +23,7 @@ body {
   /* Sử dụng ảnh nền người dùng với một lớp phủ tối (dark overlay) để chữ dễ đọc */
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url('/meomeo.jpg');
+    var(--background-image);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -46,7 +47,7 @@ body {
 .light-theme body {
   background-image:
     linear-gradient(rgba(235, 242, 239, 0.62), rgba(219, 231, 228, 0.76)),
-    url('/meomeo.jpg');
+    var(--background-image);
 }
 
 .light-theme .surface-panel {
