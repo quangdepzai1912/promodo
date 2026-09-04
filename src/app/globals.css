@@ -37,3 +37,68 @@ body {
   border-radius: 1rem;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
+
+.light-theme {
+  --background: #dfe7e6;
+  --foreground: #162020;
+}
+
+.light-theme body {
+  background-image:
+    linear-gradient(rgba(235, 242, 239, 0.62), rgba(219, 231, 228, 0.76)),
+    url('/meomeo.jpg');
+}
+
+.light-theme .surface-panel {
+  background-color: rgba(245, 249, 247, 0.72);
+  border-color: rgba(22, 32, 32, 0.14);
+  box-shadow: 0 10px 30px -10px rgba(30, 55, 52, 0.25);
+}
+
+.light-theme .theme-toggle {
+  border-color: rgba(22, 32, 32, 0.18);
+  background-color: rgba(245, 249, 247, 0.72);
+  color: #162020;
+}
+
+.light-theme .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #162020;
+}
+
+.light-theme .bg-\[\#0a0a0a\] {
+  background-color: rgba(235, 242, 239, 0.78);
+}
+
+.light-theme .bg-\[\#111111\] {
+  background-color: rgba(245, 249, 247, 0.82);
+}
+
+.light-theme .border-\[\#262626\],
+.light-theme .border-\[\#333\] {
+  border-color: rgba(22, 32, 32, 0.16);
+}
+
+.light-theme .text-white,
+.light-theme .text-neutral-200,
+.light-theme .text-neutral-300 {
+  color: #162020;
+}
+
+.light-theme .text-neutral-400,
+.light-theme .text-neutral-500,
+.light-theme .text-neutral-700 {
+  color: #526361;
+}
+
+.light-theme .hover\:text-white:hover {
+  color: #162020;
+}
+
+.light-theme .bg-neutral-800 {
+  background-color: #c8d5d2;
+}
+
+.light-theme .bg-neutral-700 {
+  background-color: #aabbb7;
+}
