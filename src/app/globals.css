@@ -39,6 +39,19 @@ body {
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
+.icon-action {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.icon-action:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 20px -10px rgba(255, 255, 255, 0.7);
+}
+
+.icon-action:active {
+  transform: scale(1.04);
+}
+
 .light-theme {
   --background: #dfe7e6;
   --foreground: #162020;

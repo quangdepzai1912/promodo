@@ -22,7 +22,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setActivePanel(activePanel === "calendar" ? null : "calendar")}
-          className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-md transition-colors ${activePanel === "calendar" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
+          className={`icon-action flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-md transition-colors ${activePanel === "calendar" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
           title="Study calendar"
           aria-label="Open study calendar"
           aria-pressed={activePanel === "calendar"}
@@ -32,7 +32,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setActivePanel(activePanel === "roadmap" ? null : "roadmap")}
-          className={`flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-md transition-colors ${activePanel === "roadmap" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
+          className={`icon-action flex h-9 w-9 items-center justify-center rounded-full border backdrop-blur-md transition-colors ${activePanel === "roadmap" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
           title="Study roadmap"
           aria-label="Open study roadmap"
           aria-pressed={activePanel === "roadmap"}

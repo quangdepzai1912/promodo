@@ -24,7 +24,7 @@ export default function FocusModeButton() {
     <button
       type="button"
       onClick={toggleFullscreen}
-      className="fixed bottom-5 right-5 z-20 flex items-center gap-2 rounded-lg border border-white/15 bg-black/45 px-3 py-2 text-xs font-medium text-neutral-300 shadow-lg backdrop-blur-md transition-colors hover:bg-black/65 hover:text-white"
+      className="icon-action fixed bottom-5 right-5 z-20 flex items-center gap-2 rounded-lg border border-white/15 bg-black/45 px-3 py-2 text-xs font-medium text-neutral-300 shadow-lg backdrop-blur-md transition-colors hover:bg-black/65 hover:text-white"
       title={isFullscreen ? "Exit focus time" : "Enter focus time"}
       aria-label={isFullscreen ? "Exit focus time" : "Enter focus time"}
     >
