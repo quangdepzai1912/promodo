@@ -18,7 +18,7 @@ export default function Home() {
       <BackgroundRotator />
       <ThemeToggle />
       <FocusModeButton />
-      <div className="fixed right-16 top-3 z-20 flex gap-1.5 sm:right-16 sm:top-5 sm:gap-2">
+      <div className="fixed right-16 top-3 z-20 flex items-center gap-1.5 sm:right-16 sm:top-5 sm:gap-2">
         <button
           type="button"
           onClick={() => setActivePanel(activePanel === "calendar" ? null : "calendar")}
