@@ -8,6 +8,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import StudyCalendar from "@/components/StudyCalendar";
 import BackgroundRotator from "@/components/BackgroundRotator";
 import GoalPlanner from "@/components/GoalPlanner";
+import FocusModeButton from "@/components/FocusModeButton";
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<"calendar" | "roadmap" | null>(null);
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24">
       <BackgroundRotator />
       <ThemeToggle />
+      <FocusModeButton />
       <div className="fixed right-16 top-5 z-20 flex gap-2">
         <button
           type="button"
