@@ -1,6 +1,7 @@
 import Timer from "@/components/Timer";
 import TaskList from "@/components/TaskList";
 import ThemeToggle from "@/components/ThemeToggle";
+import StudyCalendar from "@/components/StudyCalendar";
 
 export default function Home() {
   return (
@@ -26,6 +27,10 @@ export default function Home() {
           </div>
         </div>
 
+      </div>
+
+      <div className="w-full max-w-5xl">
+        <StudyCalendar />
       </div>
 
       {/* Footer */}

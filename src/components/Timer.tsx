@@ -73,6 +73,7 @@ export default function Timer() {
 
       // Auto-switch mode
       if (mode === "pomodoro") {
+        window.dispatchEvent(new CustomEvent("promodo-session-completed", { detail: settings.pomodoro }));
         const newCount = pomodoroCount + 1;
         setPomodoroCount(newCount);
         const nextMode = newCount % 4 === 0 ? "longBreak" : "shortBreak";
