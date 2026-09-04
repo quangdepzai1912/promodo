@@ -125,11 +125,11 @@ export default function StudyCalendar() {
   const changeMonth = (amount: number) => setMonth(new Date(month.getFullYear(), month.getMonth() + amount, 1));
 
   return (
-    <section className="surface-panel mt-8 p-6">
+    <section className="surface-panel mt-4 p-4 sm:mt-8 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neutral-500"><Flame className="h-4 w-4 text-orange-400" /> Study streak</p>
-          <h2 className="text-2xl font-bold">{streak} {streak === 1 ? "day" : "days"}</h2>
+          <h2 className="text-xl font-bold sm:text-2xl">{streak} {streak === 1 ? "day" : "days"}</h2>
           <p className="mt-1 text-sm text-neutral-500">{formatMinutes(totalMinutes)} studied in total</p>
         </div>
         {milestoneReached ? (

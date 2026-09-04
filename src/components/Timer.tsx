@@ -146,22 +146,22 @@ export default function Timer() {
         currentSettings={settings}
       />
 
-      <div className="surface-panel p-10 flex flex-col items-center justify-center min-h-[420px] relative overflow-hidden">
+      <div className="surface-panel relative flex min-h-[390px] flex-col items-center justify-center overflow-hidden p-4 sm:min-h-[420px] sm:p-8 md:p-10">
         {/* Settings button top-right */}
         <button
           onClick={() => setIsSettingsOpen(true)}
-          className="absolute top-5 right-5 text-neutral-500 hover:text-white transition-colors"
+          className="icon-action absolute right-4 top-4 rounded-full p-2 text-neutral-500 transition-colors hover:text-white sm:right-5 sm:top-5"
         >
           <Settings className="w-4 h-4" />
         </button>
 
         {/* Mode tabs */}
-        <div className="flex gap-1.5 mb-10 p-1 bg-[#0a0a0a] border border-[#262626] rounded-lg">
+        <div className="mb-8 flex max-w-full gap-0.5 overflow-x-auto rounded-lg border border-[#262626] bg-[#0a0a0a] p-1 sm:mb-10 sm:gap-1.5">
           {(["pomodoro", "shortBreak", "longBreak"] as Mode[]).map((m) => (
-            <button
+              <button
               key={m}
               onClick={() => switchMode(m)}
-              className={`px-5 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                className={`whitespace-nowrap rounded-md px-3 py-2 text-xs font-medium transition-colors sm:px-5 sm:py-1.5 sm:text-sm ${
                 mode === m ? "bg-white text-black" : "text-neutral-400 hover:text-white"
               }`}
             >
@@ -171,12 +171,12 @@ export default function Timer() {
         </div>
 
         {/* Timer display */}
-        <div className="text-[8rem] md:text-[10rem] leading-none font-bold tracking-tighter mb-3 text-white tabular-nums">
+        <div className="mb-3 text-[4.5rem] font-bold leading-none tracking-tighter text-white tabular-nums sm:text-[7rem] md:text-[10rem]">
           {formatTime(timeLeft)}
         </div>
 
         {/* Progress bar */}
-        <div className="w-full max-w-sm h-px bg-neutral-800 mb-10 rounded-full overflow-hidden">
+        <div className="mb-8 h-px w-full max-w-sm overflow-hidden rounded-full bg-neutral-800 sm:mb-10">
           <div
             className="h-full bg-white transition-all duration-1000"
             style={{ width: `${progress}%` }}
@@ -184,10 +184,10 @@ export default function Timer() {
         </div>
 
         {/* Controls */}
-        <div className="flex gap-3 w-full max-w-sm">
+        <div className="flex w-full max-w-sm gap-2 sm:gap-3">
           <button
             onClick={toggleTimer}
-            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-lg text-lg font-bold transition-all ${
+            className={`flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg py-3 text-base font-bold transition-all sm:py-4 sm:text-lg ${
               isActive
                 ? "bg-neutral-800 text-white hover:bg-neutral-700"
                 : "bg-white text-black hover:bg-neutral-200"
@@ -199,7 +199,7 @@ export default function Timer() {
 
           <button
             onClick={resetTimer}
-            className="flex items-center justify-center bg-[#111111] border border-[#262626] hover:bg-neutral-800 text-neutral-400 hover:text-white w-16 rounded-lg transition-colors"
+            className="flex min-h-12 w-14 items-center justify-center rounded-lg border border-[#262626] bg-[#111111] text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-white sm:w-16"
             title="Reset Timer"
           >
             <RotateCcw className="w-5 h-5" />

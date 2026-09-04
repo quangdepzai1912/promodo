@@ -73,11 +73,11 @@ export default function GoalPlanner() {
   const deleteGoal = (goalId: string) => persist(goals.filter((goal) => goal.id !== goalId));
 
   return (
-    <section className="surface-panel mt-8 p-6">
+    <section className="surface-panel mt-4 p-4 sm:mt-8 sm:p-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neutral-500"><Target className="h-4 w-4 text-emerald-400" /> Goals & daily plan</p>
-          <h2 className="text-2xl font-bold">Study roadmap</h2>
+          <h2 className="text-xl font-bold sm:text-2xl">Study roadmap</h2>
           <p className="mt-1 text-sm text-neutral-500">Turn a big goal into a clear plan for every day.</p>
         </div>
         {!isCreating && <button onClick={() => setIsCreating(true)} className="flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-neutral-200"><Plus className="h-4 w-4" /> New goal</button>}
