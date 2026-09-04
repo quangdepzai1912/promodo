@@ -9,6 +9,7 @@ import StudyCalendar from "@/components/StudyCalendar";
 import BackgroundRotator from "@/components/BackgroundRotator";
 import GoalPlanner from "@/components/GoalPlanner";
 import FocusModeButton from "@/components/FocusModeButton";
+import StudyQuote from "@/components/StudyQuote";
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<"calendar" | "roadmap" | null>(null);
@@ -67,10 +68,7 @@ export default function Home() {
         {activePanel === "roadmap" && <GoalPlanner />}
       </div>
 
-      {/* Footer */}
-      <footer className="mt-8 px-4 text-center text-[11px] text-neutral-700 sm:mt-12 sm:text-xs">
-        Built with ❤️ for focused learning · Promodo
-      </footer>
+      <StudyQuote />
     </main>
   );
 }
