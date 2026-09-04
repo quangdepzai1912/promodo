@@ -3,6 +3,7 @@ import TaskList from "@/components/TaskList";
 import ThemeToggle from "@/components/ThemeToggle";
 import StudyCalendar from "@/components/StudyCalendar";
 import BackgroundRotator from "@/components/BackgroundRotator";
+import GoalPlanner from "@/components/GoalPlanner";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
 
       <div className="w-full max-w-5xl">
         <StudyCalendar />
+        <GoalPlanner />
       </div>
 
       {/* Footer */}
