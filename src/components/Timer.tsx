@@ -5,6 +5,7 @@ import SettingsModal, { PomodoroSettings } from "./SettingsModal";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "./AuthProvider";
 import { playAlarmSound } from "@/lib/alarmSounds";
+import { useLanguage } from "@/lib/i18n";
 
 type Mode = "pomodoro" | "shortBreak" | "longBreak";
 
@@ -20,6 +21,7 @@ const defaultSettings: PomodoroSettings = {
 
 export default function Timer() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [settings, setSettings] = useState<PomodoroSettings>(defaultSettings);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("pomodoro");
@@ -163,7 +165,7 @@ export default function Timer() {
                 mode === m ? "bg-white text-black" : "text-neutral-400 hover:text-white"
               }`}
             >
-              {m === "pomodoro" ? "Pomodoro" : m === "shortBreak" ? "Short Break" : "Long Break"}
+              {m === "pomodoro" ? t("pomodoro") : m === "shortBreak" ? t("shortBreak") : t("longBreak")}
             </button>
           ))}
         </div>
@@ -192,13 +194,13 @@ export default function Timer() {
             }`}
           >
             {isActive ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
-            <span className="pixel-font text-[10px] sm:text-xs">{isActive ? "PAUSE" : "START"}</span>
+            <span className="pixel-font text-[10px] sm:text-xs">{isActive ? t("pause") : t("start")}</span>
           </button>
 
           <button
             onClick={resetTimer}
             className="flex min-h-12 w-14 items-center justify-center rounded-lg border border-[#262626] bg-[#111111] text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-white sm:w-16"
-            title="Reset Timer"
+            title={t("resetTimer")}
           >
             <RotateCcw className="w-5 h-5" />
           </button>

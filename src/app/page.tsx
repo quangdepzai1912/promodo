@@ -10,9 +10,11 @@ import BackgroundRotator from "@/components/BackgroundRotator";
 import GoalPlanner from "@/components/GoalPlanner";
 import FocusModeButton from "@/components/FocusModeButton";
 import StudyQuote from "@/components/StudyQuote";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
   const [activePanel, setActivePanel] = useState<"calendar" | "roadmap" | null>(null);
+  const { t } = useLanguage();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-3 pb-20 pt-16 sm:p-8 md:p-12 lg:p-24">
@@ -24,8 +26,8 @@ export default function Home() {
           type="button"
           onClick={() => setActivePanel(activePanel === "calendar" ? null : "calendar")}
           className={`icon-action flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-md transition-colors sm:h-9 sm:w-9 ${activePanel === "calendar" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
-          title="Study calendar"
-          aria-label="Open study calendar"
+          title={t("studyCalendar")}
+          aria-label={t("studyCalendar")}
           aria-pressed={activePanel === "calendar"}
         >
           <CalendarDays className="h-4 w-4" />
@@ -34,8 +36,8 @@ export default function Home() {
           type="button"
           onClick={() => setActivePanel(activePanel === "roadmap" ? null : "roadmap")}
           className={`icon-action flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-md transition-colors sm:h-9 sm:w-9 ${activePanel === "roadmap" ? "border-white bg-white text-black" : "border-white/15 bg-black/35 text-neutral-300 hover:bg-black/55 hover:text-white"}`}
-          title="Study roadmap"
-          aria-label="Open study roadmap"
+          title={t("roadmap")}
+          aria-label={t("roadmap")}
           aria-pressed={activePanel === "roadmap"}
         >
           <Target className="h-4 w-4" />
@@ -53,8 +55,8 @@ export default function Home() {
           <div className="surface-panel flex h-full min-h-[360px] flex-col p-4 sm:min-h-[420px] sm:p-6">
             {/* Header */}
             <div className="pb-5 mb-1 border-b border-[#262626]">
-              <h1 className="pixel-heading text-lg font-bold tracking-tight sm:text-xl">Focus Tasks</h1>
-              <p className="text-xs text-neutral-500 mt-1">Track what you&apos;re working on today</p>
+              <h1 className="pixel-heading text-lg font-bold tracking-tight sm:text-xl">{t("focusTasks")}</h1>
+              <p className="text-xs text-neutral-500 mt-1">{t("trackToday")}</p>
             </div>
 
             <TaskList />

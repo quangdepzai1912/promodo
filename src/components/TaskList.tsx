@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CheckCircle2, Plus, Trash2 } from "lucide-react";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { useAuth } from "./AuthProvider";
+import { useLanguage } from "@/lib/i18n";
 
 type Task = {
   id: string;
@@ -18,6 +19,7 @@ const defaultTasks: Task[] = [
 
 export default function TaskList() {
   const { user, loading: authLoading } = useAuth();
+  const { t } = useLanguage();
   const [tasks, setTasks] = useState<Task[]>(() => {
     if (typeof window === "undefined") return defaultTasks;
     const savedTasks = window.localStorage.getItem("promodo-tasks");
@@ -151,12 +153,12 @@ export default function TaskList() {
             autoFocus
             value={newTaskTitle}
             onChange={(e) => setNewTaskTitle(e.target.value)}
-            placeholder="What are you working on?"
+            placeholder={t("taskPlaceholder")}
             className="w-full bg-transparent border-none outline-none text-white text-sm mb-4"
           />
           <div className="flex justify-end gap-2">
-            <button type="button" onClick={() => setIsAdding(false)} className="px-4 py-2 text-sm font-medium text-neutral-400 hover:text-white">Cancel</button>
-            <button type="submit" className="px-4 py-2 text-sm font-medium bg-white text-black rounded-md hover:bg-neutral-200">Save</button>
+            <button type="button" onClick={() => setIsAdding(false)} className="px-4 py-2 text-sm font-medium text-neutral-400 hover:text-white">{t("cancel")}</button>
+            <button type="submit" className="px-4 py-2 text-sm font-medium bg-white text-black rounded-md hover:bg-neutral-200">{t("save")}</button>
           </div>
         </form>
       ) : (
@@ -165,7 +167,7 @@ export default function TaskList() {
           className="mt-2 w-full py-3.5 bg-transparent hover:bg-white/5 border border-dashed border-[#333] rounded-lg text-neutral-400 text-sm font-medium hover:text-white transition-colors flex justify-center items-center gap-2"
         >
           <Plus className="w-4 h-4" />
-          Add New Task
+          {t("addTask")}
         </button>
       )}
     </div>

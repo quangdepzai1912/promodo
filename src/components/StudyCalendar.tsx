@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Award, ChevronLeft, ChevronRight, Flame } from "lucide-react";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { useAuth } from "./AuthProvider";
+import { useLanguage } from "@/lib/i18n";
 
 type StudyDay = {
   date: string;
@@ -30,6 +31,7 @@ const formatMinutes = (minutes: number) => {
 
 export default function StudyCalendar() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [days, setDays] = useState<StudyDay[]>([]);
   const [selectedDate, setSelectedDate] = useState(() => new Date());
   const [month, setMonth] = useState(() => new Date());
@@ -128,14 +130,14 @@ export default function StudyCalendar() {
     <section className="surface-panel mt-4 p-4 sm:mt-8 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neutral-500"><Flame className="h-4 w-4 text-orange-400" /> Study streak</p>
-          <h2 className="pixel-heading text-xl font-bold sm:text-2xl">{streak} {streak === 1 ? "day" : "days"}</h2>
-          <p className="mt-1 text-sm text-neutral-500">{formatMinutes(totalMinutes)} studied in total</p>
+          <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neutral-500"><Flame className="h-4 w-4 text-orange-400" /> {t("studyStreak")}</p>
+          <h2 className="pixel-heading text-xl font-bold sm:text-2xl">{streak} {streak === 1 ? t("day") : t("dayPlural")}</h2>
+          <p className="mt-1 text-sm text-neutral-500">{formatMinutes(totalMinutes)} {t("studiedTotal")}</p>
         </div>
         {milestoneReached ? (
           <div className="flex items-center gap-2 rounded-lg border border-orange-400/40 bg-orange-400/10 px-3 py-2 text-sm text-orange-200"><Award className="h-4 w-4" /> {streak}-day streak achieved!</div>
         ) : (
-          <p className="text-sm text-neutral-500">{nextMilestone - streak} days to your next milestone</p>
+          <p className="text-sm text-neutral-500">{nextMilestone - streak} {t("daysToMilestone")}</p>
         )}
       </div>
 
@@ -158,11 +160,11 @@ export default function StudyCalendar() {
           </div>
         </div>
         <div className="border-t border-[#262626] pt-4 md:border-l md:border-t-0 md:pl-5 md:pt-0">
-          <p className="text-xs uppercase tracking-widest text-neutral-500">Selected day</p>
+          <p className="text-xs uppercase tracking-widest text-neutral-500">{t("selectedDay")}</p>
           <p className="mt-2 text-sm font-semibold">{selectedDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</p>
           <p className="mt-1 text-2xl font-bold">{formatMinutes(selectedMinutes)}</p>
-          <p className="mt-2 text-xs text-neutral-500">Complete a Pomodoro to record study time.</p>
-          {loading && <p className="mt-3 text-xs text-neutral-500">Syncing history...</p>}
+          <p className="mt-2 text-xs text-neutral-500">{t("completePomodoro")}</p>
+          {loading && <p className="mt-3 text-xs text-neutral-500">{t("syncing")}</p>}
           {message && <p className="mt-3 text-xs text-amber-200">{message}</p>}
         </div>
       </div>
